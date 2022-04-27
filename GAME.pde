@@ -1,19 +1,36 @@
 void game() {
 
 
+
+
   background(0);
   //paddles
+  if (player == player1) {
+    if (ballx > width/2) {
+      if (bally>righty) {
+        righty = righty + 4;
+      }
+      if ( bally < righty) {
+        righty = righty-4;
+      }
+    }
+  }
+    
+  if (player == player2) {
+    if (upkey == true) righty = righty -7;
+    if (downkey == true) righty = righty +7;
+  }
   circle(leftx, lefty, leftd);
   circle(rightx, righty, rightd);
 
   //move paddles
 
-  if (wkey==true) lefty = lefty-5;
-  if (skey==true) lefty=lefty+5;
-  if (upkey == true) righty = righty -5;
-  if (downkey == true) righty = righty +5;
+  if (wkey==true) lefty = lefty-7;
+  if (skey==true) lefty=lefty+7;
+  //if (upkey == true) righty = righty -7;
+  //if (downkey == true) righty = righty +7;
 
-  lefty = max(lefty,50);
+  lefty = max(lefty, 50);
   lefty = min(lefty, 550);
   righty = max (righty, 50);
   righty = min(righty, 550);
@@ -65,12 +82,23 @@ void game() {
     ballx = 400;
     bally = 300;
     timer = 100;
- 
   }
-  if (leftscore == 1) mode = GAMEOVER; else 
-  if (rightscore == 1) mode = GAMEOVER; 
-} 
-  
+
+
+
+  if (leftscore == 3) {
+    mode = GAMEOVER;
+  } else if (rightscore == 3) {
+    mode = GAMEOVER;
+  }
+
+
+
+  if (pausekey == true) {
+    mode = PAUSE;
+  }
+}
+
 
 
 

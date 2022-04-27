@@ -1,4 +1,4 @@
-//modes
+   //modes
 int mode;
 final int INTRO = 1;
 final int GAME = 2;
@@ -12,11 +12,17 @@ float vx, vy;
 float d, leftr, ballR, rightr;
 int leftscore, rightscore, timer;
 
-boolean wkey, skey, upkey, downkey;
+
+int player;
+final int player1 = 5;
+final int player2 = 6;
+final int bored = 7;
+
+boolean wkey, skey, upkey, downkey, pausekey;
 
 void setup() {
   size(800, 600);
-  mode = GAME;
+  mode = INTRO;
   
    //intitalize ball
   ballx = width/2;
